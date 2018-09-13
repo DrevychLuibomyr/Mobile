@@ -25,7 +25,11 @@ class ViewController: UIViewController {
     @IBAction func didTapOnWelcomeButton(_ sender: UIButton) {
         guard let text = nameTextField.text else { return }
         if text.isEmpty{
-            AlertHelper.showAlert(on: self, title: Constants.alertTitle, message: Constants.alertMessage, buttonTitle: Constants.alertButtonTitle, buttonAction: { }, showCancelButton: false)
+            AlertHelper.showAlert(on: self,
+                                  title: Constants.alertTitle,
+                                  message: Constants.alertMessage,
+                                  buttonTitle: Constants.alertButtonTitle,
+                                  buttonAction: { }, showCancelButton: false)
         } else {
             welcomeLabel.text = "Hello \(text)"
         }

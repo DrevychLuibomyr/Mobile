@@ -9,11 +9,14 @@
 import UIKit
 
 class AlertHelper {
-    
-    static let errorTitle = Constants.alertTitle
-    static let okActionButtonTitle = Constants.alertButtonTitle
     static let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-    static func showAlert(on owner: UIViewController, title: String? = nil, message: String, buttonTitle: String, buttonAction: @escaping () -> Void, showCancelButton: Bool = true) {
+    
+    static func showAlert(on owner: UIViewController,
+                          title: String? = nil,
+                          message: String,
+                          buttonTitle: String,
+                          buttonAction: @escaping () -> Void,
+                          showCancelButton: Bool = true) {
         let alertController = UIAlertController(title: title,
                                                 message: message,
                                                 preferredStyle: .alert)
