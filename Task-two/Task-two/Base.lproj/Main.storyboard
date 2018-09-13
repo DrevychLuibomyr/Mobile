@@ -31,7 +31,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HR9-ZW-QT4">
                                 <rect key="frame" x="243" y="182" width="116" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Say hello"/>
                                 <connections>
                                     <action selector="didTapOnWelcomeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Uep-b6-bv7"/>
                                 </connections>
@@ -48,7 +48,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="textField" destination="DbG-Ff-KMp" id="cgo-bg-aSL"/>
+                        <outlet property="nameTextField" destination="DbG-Ff-KMp" id="cgo-bg-aSL"/>
                         <outlet property="welcomeLabel" destination="llJ-98-kDM" id="cdp-Tt-aYT"/>
                     </connections>
                 </viewController>

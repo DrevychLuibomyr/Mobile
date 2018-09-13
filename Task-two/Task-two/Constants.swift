@@ -9,7 +9,7 @@
 import Foundation
 
 struct Constants {
-    static let alertTitle = ""
-    static let alertMessage = ""
-    static let alertButtonTitle = ""
+    static let alertTitle = "Please write text"
+    static let alertMessage = "Sorry....your TextField is empty(("
+    static let alertButtonTitle = "Ok"
 }

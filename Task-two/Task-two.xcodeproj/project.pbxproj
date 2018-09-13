@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		182DBD2B2149B63E0010293D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182DBD2A2149B63E0010293D /* Constants.swift */; };
+		182DBD2D214A467A0010293D /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182DBD2C214A467A0010293D /* AlertHelper.swift */; };
 		186D4436214115D800DA3F98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186D4435214115D800DA3F98 /* AppDelegate.swift */; };
 		186D4438214115D800DA3F98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186D4437214115D800DA3F98 /* ViewController.swift */; };
 		186D443B214115D800DA3F98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186D4439214115D800DA3F98 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		182DBD2A2149B63E0010293D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		182DBD2C214A467A0010293D /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		186D4432214115D800DA3F98 /* Task-two.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task-two.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		186D4435214115D800DA3F98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		186D4437214115D800DA3F98 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				186D443E214115DA00DA3F98 /* LaunchScreen.storyboard */,
 				186D4441214115DA00DA3F98 /* Info.plist */,
 				182DBD2A2149B63E0010293D /* Constants.swift */,
+				182DBD2C214A467A0010293D /* AlertHelper.swift */,
 			);
 			path = "Task-two";
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				182DBD2D214A467A0010293D /* AlertHelper.swift in Sources */,
 				186D4438214115D800DA3F98 /* ViewController.swift in Sources */,
 				186D4436214115D800DA3F98 /* AppDelegate.swift in Sources */,
 				182DBD2B2149B63E0010293D /* Constants.swift in Sources */,
