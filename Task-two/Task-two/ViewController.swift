@@ -8,18 +8,100 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
+final class ViewController: UITableViewController {
     
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var userNickName: UITextField!
+    @IBOutlet weak var userPassword: UITextField!
+    @IBOutlet weak var userPhoneTextField: UITextField!
     
-    //MARK: Life-Cycle
+    lazy var textFields: [UITextField] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        textFields = [firstNameTextField, emailTextField, userPassword, userNickName, userPhoneTextField ]
+    }
+
+    @IBAction func validateAllField(_ sender: Any) {
+        if validateAllFields()  {
+            print("We did it")
+        } else {
+            AlertHelper.showAlert(on: self,
+                                  title: Constants.alertTitle,
+                                  message: Constants.alertNotValidFiledsMessage,
+                                  buttonTitle: Constants.alertButtonTitle,
+                                  buttonAction: { }, showCancelButton: false)
+        }
+    }
+    
+    private func validateAllFields() -> Bool{
+    
+        if textFields.isEmpty {
+            return false
+        }
+        
+        if isValidEmail(firstNameTextField.text!) {
+            print("Email is valid")
+        } else {
+            return false
+        }
+        
+        if isValidUserPhone(emailTextField.text!) {
+            print("Phone number valid")
+        } else {
+            return false
+        }
+        
+        if validateUserNick(userNickName.text!) {
+            print("Phone number valid")
+        } else {
+            return false
+        }
+        
+        if validateUserName(firstNameTextField.text!) {
+            print("Phone number valid")
+        } else {
+            return false
+        }
+        
+        if validatePassword(userPassword.text!) {
+            print("Phone number valid")
+        } else {
+            return false
+        }
+        
+        return true
+    }
+    
+    private func isValidEmail(_ email: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        guard let regex = try? NSRegularExpression(pattern: emailRegex, options: []) else { return false }
+        return regex.matches(in: email, options: [], range: NSMakeRange(0, email.count)).count > 0
+    }
+    
+    private func isValidUserPhone(_ value: String) -> Bool {
+        let phoneRegex = "^\\d{3}-\\d{3}-\\d{4}$"
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+        let result =  phoneTest.evaluate(with: value)
+        return result
+    }
+    
+    private func validatePassword(_ password: String) -> Bool {
+        return !password.isEmpty && password.count >= 8
+    }
+    
+    private func validateUserNick(_ userNickName: String) -> Bool {
+        return !userNickName.isEmpty
+    }
+    
+    private func validateUserName(_ userName: String) -> Bool {
+        return !userName.isEmpty
     }
     
 }
 
-extension UIColor {
-    static var trueColor = UIColor(red: 0.1882, green: 0.6784, blue: 0.3882, alpha: 1.0)
-    static var falseColor = UIColor(red: 0.7451, green: 0.2275, blue: 0.1922, alpha: 1.0)
-}
+
+
+
 
