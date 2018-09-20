@@ -8,31 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
     
-    //MARK: - IBOutlet
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var welcomeLabel: UILabel!
     
     //MARK: Life-Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameTextField.allowsEditingTextAttributes = true
-        nameTextField.clearButtonMode = .whileEditing
-    }
-    
-    //MARK: - IBAction
-    @IBAction func didTapOnWelcomeButton(_ sender: UIButton) {
-        guard let text = nameTextField.text else { return }
-        if text.isEmpty{
-            AlertHelper.showAlert(on: self,
-                                  title: Constants.alertTitle,
-                                  message: Constants.alertMessage,
-                                  buttonTitle: Constants.alertButtonTitle,
-                                  buttonAction: { }, showCancelButton: false)
-        } else {
-            welcomeLabel.text = "Hello \(text)"
-        }
     }
     
 }
+
+extension UIColor {
+    static var trueColor = UIColor(red: 0.1882, green: 0.6784, blue: 0.3882, alpha: 1.0)
+    static var falseColor = UIColor(red: 0.7451, green: 0.2275, blue: 0.1922, alpha: 1.0)
+}
+
