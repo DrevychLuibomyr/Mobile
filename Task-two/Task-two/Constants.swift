@@ -13,4 +13,9 @@ struct Constants {
     static let alertMessage = "Sorry....your TextFields is empty(("
     static let alertButtonTitle = "Ok"
     static let alertNotValidFiledsMessage = "Your fields is empty or you make mistake"
+    static let firstName = "FirstName"
+    static let email = "Email"
+    static let nickName = "NickName"
+    static let password = "Password"
+    static let phone = "Phone"
 }

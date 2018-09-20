@@ -25,6 +25,11 @@ final class ViewController: UITableViewController {
 
     @IBAction func validateAllField(_ sender: Any) {
         if validateAllFields()  {
+            Manager.setAccountWith(firstName: firstNameTextField.text,
+                                   email: emailTextField.text,
+                                   nickName: userNickName.text,
+                                   phone: userPhoneTextField.text,
+                                   password: userPassword.text)
             print("We did it")
         } else {
             AlertHelper.showAlert(on: self,
