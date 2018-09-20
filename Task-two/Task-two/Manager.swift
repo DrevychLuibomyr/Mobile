@@ -27,7 +27,7 @@ class Manager {
         return UserDefaults.standard.string(forKey: Constants.email)
     }
     
-    static func getLastName() -> String? {
+    static func getNickName() -> String? {
         return UserDefaults.standard.string(forKey: Constants.nickName)
     }
     

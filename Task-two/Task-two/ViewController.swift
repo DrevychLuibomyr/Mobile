@@ -17,6 +17,7 @@ final class ViewController: UITableViewController {
     @IBOutlet weak var userPhoneTextField: UITextField!
     
     lazy var textFields: [UITextField] = []
+    private var resultViewController = ResultViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,7 @@ final class ViewController: UITableViewController {
                                    nickName: userNickName.text,
                                    phone: userPhoneTextField.text,
                                    password: userPassword.text)
+            self.navigationController?.pushViewController(resultViewController, animated: true)
             print("We did it")
         } else {
             AlertHelper.showAlert(on: self,
