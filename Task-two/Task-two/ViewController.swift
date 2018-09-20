@@ -35,7 +35,7 @@ final class ViewController: UITableViewController {
         }
     }
     
-    private func validateAllFields() -> Bool{
+    private func validateAllFields() -> Bool {
     
         if textFields.isEmpty {
             return false
