@@ -10,6 +10,7 @@ import Foundation
 
 struct Constants {
     static let alertTitle = "Please write text"
-    static let alertMessage = "Sorry....your TextField is empty(("
+    static let alertMessage = "Sorry....your TextFields is empty(("
     static let alertButtonTitle = "Ok"
+    static let alertNotValidFiledsMessage = "Your fields is empty or you make mistake"
 }
