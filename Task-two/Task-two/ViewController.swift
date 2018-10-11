@@ -8,97 +8,129 @@
 
 import UIKit
 
-final class ViewController: UITableViewController {
+class AccountViewController: UITableViewController {
     
-    @IBOutlet weak var firstNameTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var userNickName: UITextField!
-    @IBOutlet weak var userPassword: UITextField!
-    @IBOutlet weak var userPhoneTextField: UITextField!
+    @IBOutlet weak var firstNameField: UITextField!
+    @IBOutlet weak var middleInitialField: UITextField!
+    @IBOutlet weak var lastNameField: UITextField!
+    @IBOutlet weak var superVillianNameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var phoneFiled: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordConfig: UITextField!
     
     lazy var textFields: [UITextField] = []
-
+    var regexes: [NSRegularExpression?]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        textFields = [firstNameTextField, emailTextField, userPassword, userNickName, userPhoneTextField ]
+        setUpNSRegularExpression()
     }
-
-    @IBAction func validateAllField(_ sender: Any) {
-        if validateAllFields()  {
-            print("We did it")
-        } else {
-            AlertHelper.showAlert(on: self,
-                                  title: Constants.alertTitle,
-                                  message: Constants.alertNotValidFiledsMessage,
-                                  buttonTitle: Constants.alertButtonTitle,
-                                  buttonAction: { }, showCancelButton: false)
+    
+    func setUpNSRegularExpression() {
+        textFields = [ firstNameField, middleInitialField, lastNameField, superVillianNameField, passwordField, phoneFiled, emailField, passwordConfig ]
+        
+        let patterns = [ "^[a-z]{1,10}$",
+                         "^[a-z]$",
+                         "^[a-z'\\-]{2,20}$",
+                         "^[a-z0-9'.\\-\\s]{2,20}$",
+                         "^(?=\\P{Ll}*\\p{Ll})(?=\\P{Lu}*\\p{Lu})(?=\\P{N}*\\p{N})(?=[\\p{L}\\p{N}]*[^\\p{L}\\p{N}])[\\s\\S]{8,}$", "^[0-9]{6,14}$","[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}", "^(?=\\P{Ll}*\\p{Ll})(?=\\P{Lu}*\\p{Lu})(?=\\P{N}*\\p{N})(?=[\\p{L}\\p{N}]*[^\\p{L}\\p{N}])[\\s\\S]{8,}$" ]
+        
+        regexes = patterns.map {
+            do {
+                let regex = try NSRegularExpression(pattern: $0, options: .caseInsensitive)
+                return regex
+            } catch {
+                #if targetEnvironment(simulator)
+                fatalError("Error initializing regular expressions. Exiting.")
+                #else
+                return nil
+                #endif
+            }
         }
     }
     
-    private func validateAllFields() -> Bool {
+    @IBAction func saveTapped(_ sender: AnyObject) {
+        if allTextFieldsAreValid() {
+            let arrayOfText = [firstNameField.text, lastNameField.text, middleInitialField.text]
+            UserDefaults.standard.set(arrayOfText, forKey: "Text")
+            print(arrayOfText)
+        } else {
+            let alertController = UIAlertController(title: "Error!", message: "Could not save account details. Some text fields failed to validate.", preferredStyle: .alert)
+            let dismissAction = UIAlertAction(title: "OK", style: .default)
+            alertController.addAction(dismissAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
     
-        if textFields.isEmpty {
-            return false
+    
+    func validate(string: String, withRegex regex: NSRegularExpression) -> Bool {
+        let range = NSRange(string.startIndex..., in: string)
+        let matchRange = regex.rangeOfFirstMatch(in: string, options: .reportProgress, range: range)
+        return matchRange.location != NSNotFound
+    }
+    
+    func validateTextField(_ textField: UITextField) {
+        let index = textFields.index(of: textField)
+        if let regex = regexes[index!] {
+            if let text = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) {
+                let valid = validate(string: text, withRegex: regex)
+                textField.textColor = valid ? .trueColor : .falseColor
+            }
         }
-        
-        if isValidEmail(firstNameTextField.text!) {
-            print("Email is valid")
-        } else {
-            return false
-        }
-        
-        if isValidUserPhone(emailTextField.text!) {
-            print("Phone number valid")
-        } else {
-            return false
-        }
-        
-        if validateUserNick(userNickName.text!) {
-            print("Phone number valid")
-        } else {
-            return false
-        }
-        
-        if validateUserName(firstNameTextField.text!) {
-            print("Phone number valid")
-        } else {
-            return false
-        }
-        
-        if validatePassword(userPassword.text!) {
-            print("Phone number valid")
-        } else {
-            return false
+    }
+    
+    func allTextFieldsAreValid() -> Bool {
+        for (index, textField) in textFields.enumerated() {
+            if let regex = regexes[index] {
+                if let text = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) {
+                    return !text.isEmpty
+                        && (passwordConfig.text == passwordField.text)
+                        && validate(string: text, withRegex: regex)
+                }
+            }
         }
         
         return true
     }
     
-    private func isValidEmail(_ email: String) -> Bool {
-        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        guard let regex = try? NSRegularExpression(pattern: emailRegex, options: []) else { return false }
-        return regex.matches(in: email, options: [], range: NSMakeRange(0, email.count)).count > 0
+}
+
+// MARK: - UITextFieldDelegate
+extension AccountViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.textColor = .black
     }
     
-    private func isValidUserPhone(_ value: String) -> Bool {
-        let phoneRegex = "^\\d{3}-\\d{3}-\\d{4}$"
-        let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
-        let result =  phoneTest.evaluate(with: value)
-        return result
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        validateTextField(textField)
     }
     
-    private func validatePassword(_ password: String) -> Bool {
-        return !password.isEmpty && password.count >= 8
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        validateTextField(textField)
+        
+        makeNextTextFieldFirstResponder(textField)
+        
+        return true
     }
     
-    private func validateUserNick(_ userNickName: String) -> Bool {
-        return !userNickName.isEmpty
+    func makeNextTextFieldFirstResponder(_ textField: UITextField) {
+        textField.resignFirstResponder()
+        
+        if var index = textFields.index(of: textField) {
+            index += 1
+            if index < textFields.count {
+                textFields[index].becomeFirstResponder()
+            }
+        }
     }
-    
-    private func validateUserName(_ userName: String) -> Bool {
-        return !userName.isEmpty
-    }
-    
+}
+
+
+// MARK: - UIColor helpers
+extension UIColor {
+    static var trueColor = UIColor(red: 0.1882, green: 0.6784, blue: 0.3882, alpha: 1.0)
+    static var falseColor = UIColor(red: 0.7451, green: 0.2275, blue: 0.1922, alpha: 1.0)
 }
 
 
