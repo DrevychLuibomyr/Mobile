@@ -13,4 +13,6 @@ struct Constants {
     static let alertMessage = "Sorry....your TextFields is empty(("
     static let alertButtonTitle = "Ok"
     static let alertNotValidFiledsMessage = "Your fields is empty or you make mistake"
+    static let cellIdentifier = "Cell"
+    static let modelKey = "model"
 }
