@@ -19,6 +19,7 @@
 		186D4440214115DA00DA3F98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186D443E214115DA00DA3F98 /* LaunchScreen.storyboard */; };
 		18810057217B0C620071E4AF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18810056217B0C620071E4AF /* Model.swift */; };
 		18810059217B0CAF0071E4AF /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18810058217B0CAF0071E4AF /* Manager.swift */; };
+		4FCC94B68B69EAB6D1244E37 /* Pods_Task_two.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CC2BE986648627817AA5C9 /* Pods_Task_two.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,9 @@
 		186D4441214115DA00DA3F98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18810056217B0C620071E4AF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		18810058217B0CAF0071E4AF /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		40CC2BE986648627817AA5C9 /* Pods_Task_two.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Task_two.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A09B6CEF07375BED80AC855 /* Pods-Task-two.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task-two.release.xcconfig"; path = "Pods/Target Support Files/Pods-Task-two/Pods-Task-two.release.xcconfig"; sourceTree = "<group>"; };
+		64505D930F247D78BDF70D87 /* Pods-Task-two.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task-two.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Task-two/Pods-Task-two.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FCC94B68B69EAB6D1244E37 /* Pods_Task_two.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +59,8 @@
 			children = (
 				186D4434214115D800DA3F98 /* Task-two */,
 				186D4433214115D800DA3F98 /* Products */,
+				486C6A1E6B578FC016CD8E29 /* Pods */,
+				9E5A596C19B379125D2977C3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,6 +92,23 @@
 			path = "Task-two";
 			sourceTree = "<group>";
 		};
+		486C6A1E6B578FC016CD8E29 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				64505D930F247D78BDF70D87 /* Pods-Task-two.debug.xcconfig */,
+				5A09B6CEF07375BED80AC855 /* Pods-Task-two.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9E5A596C19B379125D2977C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				40CC2BE986648627817AA5C9 /* Pods_Task_two.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -92,9 +116,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 186D4444214115DA00DA3F98 /* Build configuration list for PBXNativeTarget "Task-two" */;
 			buildPhases = (
+				A0C565067B5C24C1B0163350 /* [CP] Check Pods Manifest.lock */,
 				186D442E214115D800DA3F98 /* Sources */,
 				186D442F214115D800DA3F98 /* Frameworks */,
 				186D4430214115D800DA3F98 /* Resources */,
+				0E3933A722EFC14CB8D97934 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -150,6 +176,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E3933A722EFC14CB8D97934 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Task-two/Pods-Task-two-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Task-two/Pods-Task-two-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0C565067B5C24C1B0163350 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Task-two-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		186D442E214115D800DA3F98 /* Sources */ = {
@@ -306,6 +375,7 @@
 		};
 		186D4445214115DA00DA3F98 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64505D930F247D78BDF70D87 /* Pods-Task-two.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -324,6 +394,7 @@
 		};
 		186D4446214115DA00DA3F98 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A09B6CEF07375BED80AC855 /* Pods-Task-two.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

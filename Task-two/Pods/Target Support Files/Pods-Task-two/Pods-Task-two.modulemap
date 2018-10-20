@@ -1,0 +1,6 @@
+framework module Pods_Task_two {
+  umbrella header "Pods-Task-two-umbrella.h"
+
+  export *
+  module * { export * }
+}
