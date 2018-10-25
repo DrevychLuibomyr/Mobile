@@ -19,7 +19,7 @@ class ResultViewController: UIViewController {
         getDataSource()
     }
     
-    func getDataSource() {
+    private func getDataSource() {
        model = Manager.getPersons()
     }
     
@@ -36,7 +36,7 @@ extension ResultViewController: UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as? TableViewCell else { return UITableViewCell()}
         let dataSource = model[indexPath.row]
-        cell.email.text = dataSource.phoneNumber
+        cell.email.text = dataSource.email
         cell.lastName.text = dataSource.secondName
         cell.userName.text = dataSource.firstName
         return cell

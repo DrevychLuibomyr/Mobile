@@ -10,15 +10,16 @@
 		182DBD2B2149B63E0010293D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182DBD2A2149B63E0010293D /* Constants.swift */; };
 		182DBD2D214A467A0010293D /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182DBD2C214A467A0010293D /* AlertHelper.swift */; };
 		1830572B216F1D6100D17D62 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1830572A216F1D6100D17D62 /* ResultViewController.swift */; };
-		1830572D216F221100D17D62 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1830572C216F221100D17D62 /* Account.swift */; };
 		1833C3EA21536ED000C0A1B8 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833C3E921536ED000C0A1B8 /* TableViewCell.swift */; };
 		186D4436214115D800DA3F98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186D4435214115D800DA3F98 /* AppDelegate.swift */; };
 		186D4438214115D800DA3F98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186D4437214115D800DA3F98 /* ViewController.swift */; };
 		186D443B214115D800DA3F98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186D4439214115D800DA3F98 /* Main.storyboard */; };
 		186D443D214115DA00DA3F98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186D443C214115DA00DA3F98 /* Assets.xcassets */; };
 		186D4440214115DA00DA3F98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186D443E214115DA00DA3F98 /* LaunchScreen.storyboard */; };
+		1874AE55217DB7DB0050A95C /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1874AE54217DB7DB0050A95C /* PhotoManager.swift */; };
 		18810057217B0C620071E4AF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18810056217B0C620071E4AF /* Model.swift */; };
 		18810059217B0CAF0071E4AF /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18810058217B0CAF0071E4AF /* Manager.swift */; };
+		1881005B217B1B180071E4AF /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1881005A217B1B180071E4AF /* PhotoModel.swift */; };
 		4FCC94B68B69EAB6D1244E37 /* Pods_Task_two.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CC2BE986648627817AA5C9 /* Pods_Task_two.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +27,6 @@
 		182DBD2A2149B63E0010293D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		182DBD2C214A467A0010293D /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		1830572A216F1D6100D17D62 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		1830572C216F221100D17D62 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		1833C3E921536ED000C0A1B8 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		186D4432214115D800DA3F98 /* Task-two.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task-two.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		186D4435214115D800DA3F98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -35,8 +35,10 @@
 		186D443C214115DA00DA3F98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		186D443F214115DA00DA3F98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		186D4441214115DA00DA3F98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1874AE54217DB7DB0050A95C /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		18810056217B0C620071E4AF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		18810058217B0CAF0071E4AF /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		1881005A217B1B180071E4AF /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		40CC2BE986648627817AA5C9 /* Pods_Task_two.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Task_two.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A09B6CEF07375BED80AC855 /* Pods-Task-two.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task-two.release.xcconfig"; path = "Pods/Target Support Files/Pods-Task-two/Pods-Task-two.release.xcconfig"; sourceTree = "<group>"; };
 		64505D930F247D78BDF70D87 /* Pods-Task-two.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task-two.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Task-two/Pods-Task-two.debug.xcconfig"; sourceTree = "<group>"; };
@@ -87,7 +89,8 @@
 				182DBD2A2149B63E0010293D /* Constants.swift */,
 				182DBD2C214A467A0010293D /* AlertHelper.swift */,
 				1833C3E921536ED000C0A1B8 /* TableViewCell.swift */,
-				1830572C216F221100D17D62 /* Account.swift */,
+				1881005A217B1B180071E4AF /* PhotoModel.swift */,
+				1874AE54217DB7DB0050A95C /* PhotoManager.swift */,
 			);
 			path = "Task-two";
 			sourceTree = "<group>";
@@ -227,12 +230,13 @@
 			files = (
 				182DBD2D214A467A0010293D /* AlertHelper.swift in Sources */,
 				186D4438214115D800DA3F98 /* ViewController.swift in Sources */,
-				1830572D216F221100D17D62 /* Account.swift in Sources */,
+				1874AE55217DB7DB0050A95C /* PhotoManager.swift in Sources */,
 				186D4436214115D800DA3F98 /* AppDelegate.swift in Sources */,
 				182DBD2B2149B63E0010293D /* Constants.swift in Sources */,
 				1833C3EA21536ED000C0A1B8 /* TableViewCell.swift in Sources */,
 				1830572B216F1D6100D17D62 /* ResultViewController.swift in Sources */,
 				18810059217B0CAF0071E4AF /* Manager.swift in Sources */,
+				1881005B217B1B180071E4AF /* PhotoModel.swift in Sources */,
 				18810057217B0C620071E4AF /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,7 +383,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2AUY752962;
+				DEVELOPMENT_TEAM = 65ZCMBX653;
 				INFOPLIST_FILE = "Task-two/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -398,7 +402,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2AUY752962;
+				DEVELOPMENT_TEAM = 65ZCMBX653;
 				INFOPLIST_FILE = "Task-two/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
