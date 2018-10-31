@@ -14,13 +14,13 @@ class ResultViewController: UIViewController {
     
     var model = [Model]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         getDataSource()
     }
     
     func getDataSource() {
-       model = Manager.getPersons()
+       model = Manager.getUserDefaults()
     }
     
 }
@@ -36,7 +36,7 @@ extension ResultViewController: UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as? TableViewCell else { return UITableViewCell()}
         let dataSource = model[indexPath.row]
-        cell.email.text = dataSource.phoneNumber
+        cell.email.text = dataSource.email
         cell.lastName.text = dataSource.secondName
         cell.userName.text = dataSource.firstName
         return cell

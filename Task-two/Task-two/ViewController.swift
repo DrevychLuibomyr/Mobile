@@ -57,10 +57,7 @@ class AccountViewController: UITableViewController {
             let model = Model(firstName: firstNameField.text!, secondName: lastNameField.text!, email: emailField.text!)
             Manager.submitDataWith(model: model)
         } else {
-            let alertController = UIAlertController(title: "Error!", message: "Could not save account details. Some text fields failed to validate.", preferredStyle: .alert)
-            let dismissAction = UIAlertAction(title: "OK", style: .default)
-            alertController.addAction(dismissAction)
-            self.present(alertController, animated: true, completion: nil)
+            AlertHelper.showAlert(on: self, title: "Error", message: "Could not save account details. Some text fields failed to validate.", buttonTitle: "Ok", buttonAction: {}, showCancelButton: false)
         }
     }
     
