@@ -16,10 +16,16 @@
 		186D443B214115D800DA3F98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186D4439214115D800DA3F98 /* Main.storyboard */; };
 		186D443D214115DA00DA3F98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186D443C214115DA00DA3F98 /* Assets.xcassets */; };
 		186D4440214115DA00DA3F98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186D443E214115DA00DA3F98 /* LaunchScreen.storyboard */; };
+		187430AE218ACB25006C7D36 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187430AD218ACB25006C7D36 /* DetailsViewController.swift */; };
+		187430B0218ACCE8006C7D36 /* DetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187430AF218ACCE8006C7D36 /* DetailsViewController.storyboard */; };
 		1874AE55217DB7DB0050A95C /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1874AE54217DB7DB0050A95C /* PhotoManager.swift */; };
 		18810057217B0C620071E4AF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18810056217B0C620071E4AF /* Model.swift */; };
-		18810059217B0CAF0071E4AF /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18810058217B0CAF0071E4AF /* Manager.swift */; };
+		18810059217B0CAF0071E4AF /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18810058217B0CAF0071E4AF /* UserDefaultsManager.swift */; };
 		1881005B217B1B180071E4AF /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1881005A217B1B180071E4AF /* PhotoModel.swift */; };
+		189FB502218A056E00FF3DC5 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FB501218A056E00FF3DC5 /* PhotosViewController.swift */; };
+		189FB50A218A0FC800FF3DC5 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FB509218A0FC800FF3DC5 /* Async.swift */; };
+		189FB50D218A126200FF3DC5 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FB50B218A126200FF3DC5 /* CollectionViewCell.swift */; };
+		189FB50E218A126200FF3DC5 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189FB50C218A126200FF3DC5 /* CollectionViewCell.xib */; };
 		4FCC94B68B69EAB6D1244E37 /* Pods_Task_two.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40CC2BE986648627817AA5C9 /* Pods_Task_two.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,10 +41,16 @@
 		186D443C214115DA00DA3F98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		186D443F214115DA00DA3F98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		186D4441214115DA00DA3F98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		187430AD218ACB25006C7D36 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		187430AF218ACCE8006C7D36 /* DetailsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailsViewController.storyboard; sourceTree = "<group>"; };
 		1874AE54217DB7DB0050A95C /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		18810056217B0C620071E4AF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		18810058217B0CAF0071E4AF /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		18810058217B0CAF0071E4AF /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		1881005A217B1B180071E4AF /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		189FB501218A056E00FF3DC5 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		189FB509218A0FC800FF3DC5 /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		189FB50B218A126200FF3DC5 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		189FB50C218A126200FF3DC5 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		40CC2BE986648627817AA5C9 /* Pods_Task_two.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Task_two.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A09B6CEF07375BED80AC855 /* Pods-Task-two.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task-two.release.xcconfig"; path = "Pods/Target Support Files/Pods-Task-two/Pods-Task-two.release.xcconfig"; sourceTree = "<group>"; };
 		64505D930F247D78BDF70D87 /* Pods-Task-two.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task-two.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Task-two/Pods-Task-two.debug.xcconfig"; sourceTree = "<group>"; };
@@ -77,22 +89,76 @@
 		186D4434214115D800DA3F98 /* Task-two */ = {
 			isa = PBXGroup;
 			children = (
+				189FB508218A0FA600FF3DC5 /* ConcurrencyUtils */,
+				189FB507218A080900FF3DC5 /* Constants */,
+				189FB506218A07FE00FF3DC5 /* Helper */,
+				189FB505218A07DB00FF3DC5 /* Manager */,
+				189FB504218A07CE00FF3DC5 /* Model */,
+				189FB503218A07A200FF3DC5 /* View */,
 				186D4435214115D800DA3F98 /* AppDelegate.swift */,
 				186D4437214115D800DA3F98 /* ViewController.swift */,
-				18810058217B0CAF0071E4AF /* Manager.swift */,
 				186D4439214115D800DA3F98 /* Main.storyboard */,
+				187430AF218ACCE8006C7D36 /* DetailsViewController.storyboard */,
+				189FB501218A056E00FF3DC5 /* PhotosViewController.swift */,
+				187430AD218ACB25006C7D36 /* DetailsViewController.swift */,
 				1830572A216F1D6100D17D62 /* ResultViewController.swift */,
-				18810056217B0C620071E4AF /* Model.swift */,
 				186D443C214115DA00DA3F98 /* Assets.xcassets */,
 				186D443E214115DA00DA3F98 /* LaunchScreen.storyboard */,
 				186D4441214115DA00DA3F98 /* Info.plist */,
-				182DBD2A2149B63E0010293D /* Constants.swift */,
-				182DBD2C214A467A0010293D /* AlertHelper.swift */,
-				1833C3E921536ED000C0A1B8 /* TableViewCell.swift */,
-				1881005A217B1B180071E4AF /* PhotoModel.swift */,
-				1874AE54217DB7DB0050A95C /* PhotoManager.swift */,
 			);
 			path = "Task-two";
+			sourceTree = "<group>";
+		};
+		189FB503218A07A200FF3DC5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1833C3E921536ED000C0A1B8 /* TableViewCell.swift */,
+				189FB50B218A126200FF3DC5 /* CollectionViewCell.swift */,
+				189FB50C218A126200FF3DC5 /* CollectionViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		189FB504218A07CE00FF3DC5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1881005A217B1B180071E4AF /* PhotoModel.swift */,
+				18810056217B0C620071E4AF /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		189FB505218A07DB00FF3DC5 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				1874AE54217DB7DB0050A95C /* PhotoManager.swift */,
+				18810058217B0CAF0071E4AF /* UserDefaultsManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		189FB506218A07FE00FF3DC5 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				182DBD2C214A467A0010293D /* AlertHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		189FB507218A080900FF3DC5 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				182DBD2A2149B63E0010293D /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		189FB508218A0FA600FF3DC5 /* ConcurrencyUtils */ = {
+			isa = PBXGroup;
+			children = (
+				189FB509218A0FC800FF3DC5 /* Async.swift */,
+			);
+			path = ConcurrencyUtils;
 			sourceTree = "<group>";
 		};
 		486C6A1E6B578FC016CD8E29 /* Pods */ = {
@@ -174,6 +240,8 @@
 			files = (
 				186D4440214115DA00DA3F98 /* LaunchScreen.storyboard in Resources */,
 				186D443D214115DA00DA3F98 /* Assets.xcassets in Resources */,
+				189FB50E218A126200FF3DC5 /* CollectionViewCell.xib in Resources */,
+				187430B0218ACCE8006C7D36 /* DetailsViewController.storyboard in Resources */,
 				186D443B214115D800DA3F98 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,14 +296,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				189FB50A218A0FC800FF3DC5 /* Async.swift in Sources */,
 				182DBD2D214A467A0010293D /* AlertHelper.swift in Sources */,
+				189FB502218A056E00FF3DC5 /* PhotosViewController.swift in Sources */,
 				186D4438214115D800DA3F98 /* ViewController.swift in Sources */,
 				1874AE55217DB7DB0050A95C /* PhotoManager.swift in Sources */,
 				186D4436214115D800DA3F98 /* AppDelegate.swift in Sources */,
 				182DBD2B2149B63E0010293D /* Constants.swift in Sources */,
 				1833C3EA21536ED000C0A1B8 /* TableViewCell.swift in Sources */,
+				189FB50D218A126200FF3DC5 /* CollectionViewCell.swift in Sources */,
 				1830572B216F1D6100D17D62 /* ResultViewController.swift in Sources */,
-				18810059217B0CAF0071E4AF /* Manager.swift in Sources */,
+				18810059217B0CAF0071E4AF /* UserDefaultsManager.swift in Sources */,
+				187430AE218ACB25006C7D36 /* DetailsViewController.swift in Sources */,
 				1881005B217B1B180071E4AF /* PhotoModel.swift in Sources */,
 				18810057217B0C620071E4AF /* Model.swift in Sources */,
 			);
@@ -389,7 +461,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Vergil.www.Task-two";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Vergil.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -408,7 +480,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Vergil.www.Task-two";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Vergil.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

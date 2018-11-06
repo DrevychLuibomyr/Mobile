@@ -11,31 +11,30 @@ import SwiftyJSON
 import Alamofire
 
 protocol PhotoManagerProtocol {
-    func getPhotos(onSuccess: @escaping ([PhotoModel]) -> (),onError: @escaping (String) -> ())
+    func getPhotos(page: String, onSuccess: @escaping ([PhotoModel]) -> (),onError: @escaping (String) -> ())
 }
 
 class PhotoManager: PhotoManagerProtocol {
     
-    func getPhotos(onSuccess: @escaping ([PhotoModel]) -> (), onError: @escaping (String) -> ()) {
-        guard let url = flickrURL() else { return }
+    func getPhotos(page: String, onSuccess: @escaping ([PhotoModel]) -> (), onError: @escaping (String) -> ()) {
+        guard let url = getFlickrURL(perPage: page) else { return }
         var urlRequest = URLRequest(url: url)
         urlRequest.timeoutInterval = FlickrUrlConstants.timeout
         Alamofire.request(urlRequest).responseJSON { [weak self] (response) in
             if let error = response.error {
                 onError(error.localizedDescription)
             } else {
-                DispatchQueue.main.async {
+                Async.mainQueue {
                     guard let jsonData = response.value else { return }
                     guard let data = self?.parseResponce(jsonData: jsonData) else { return }
                     onSuccess(data)
                 }
             }
-            onError("unhandled result")
         }
         
     }
 
-    private func flickrURL() -> URL? {
+    private func getFlickrURL(perPage: String) -> URL? {
         var urlComponents = URLComponents()
         urlComponents.scheme = FlickrUrlConstants.flickrApiScheme
         urlComponents.host = FlickrUrlConstants.flickrApiHost
@@ -43,12 +42,13 @@ class PhotoManager: PhotoManagerProtocol {
         urlComponents.queryItems = [
             URLQueryItem(name: JSONParameters.method, value: FlickrUrlConstants.method),
             URLQueryItem(name: JSONParameters.apikey, value: FlickrUrlConstants.APIKey),
-            URLQueryItem(name: JSONParameters.format, value: FlickrUrlConstants.json),
-            URLQueryItem(name: JSONParameters.nojsoncallback, value: FlickrUrlConstants.nojsoncallback),
-            URLQueryItem(name: JSONParameters.perpage, value: FlickrUrlConstants.perPage),
-            URLQueryItem(name: JSONParameters.page, value: FlickrUrlConstants.page),
+            URLQueryItem(name: JSONParameters.lat, value: FlickrUrlConstants.lat),
+            URLQueryItem(name: JSONParameters.lon, value: FlickrUrlConstants.long),
             URLQueryItem(name: JSONParameters.radius, value: FlickrUrlConstants.radius),
             URLQueryItem(name: JSONParameters.radiusUnits, value: FlickrUrlConstants.radiusUnits),
+            URLQueryItem(name: JSONParameters.format, value: FlickrUrlConstants.json),
+            URLQueryItem(name: JSONParameters.nojsoncallback, value: FlickrUrlConstants.callback),
+            URLQueryItem(name: JSONParameters.perpage, value: perPage),
             URLQueryItem(name: JSONParameters.page, value: FlickrUrlConstants.page),
             URLQueryItem(name: JSONParameters.extras, value: FlickrUrlConstants.views),
             URLQueryItem(name: JSONParameters.extras, value: FlickrUrlConstants.size)
@@ -58,9 +58,9 @@ class PhotoManager: PhotoManagerProtocol {
     
     private func parseResponce(jsonData: Any) -> [PhotoModel] {
         let jsonValue = JSON(jsonData)
-        let photos = jsonValue["photos"].arrayValue
+        guard let photoes = jsonValue["photos"]["photo"].array else { return []}
         var models = [PhotoModel]()
-        for photo in photos {
+        for photo in photoes {
             let title = photo["title"].stringValue
             let owner = photo["owner"].stringValue
             let id = photo["id"].stringValue

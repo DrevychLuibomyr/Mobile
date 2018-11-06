@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Constants {
     static let alertTitle = "Please write text"
@@ -15,10 +16,13 @@ struct Constants {
     static let alertNotValidFiledsMessage = "Your fields is empty or you make mistake"
     static let cellIdentifier = "Cell"
     static let modelKey = "model"
+    static let collectionCellIdentifier = "CollectionViewCell"
+    static let numbersOfColumns: CGFloat = 3
+    static let spaceBetweenCell: CGFloat = 8
 }
 
 struct FlickrUrlConstants {
-    static let APIKey = "bc8b6f460ea043d4953dcaf0d627437f"
+    static let APIKey = "72048efe61d5bb85ac1e5199e6aaf8ad"
     static let timeout = 25.0
     static let flickrApiScheme = "https"
     static let flickrApiHost = "api.flickr.com"
@@ -33,7 +37,10 @@ struct FlickrUrlConstants {
     static let views = "views"
     static let extra = "extra"
     static let radiusUnits = "km"
-    static let radius = "1"
+    static let radius = "10"
+    static let long = "-74.899509"
+    static let lat = "39.700365"
+    static let dateupload = "dateupload"
 }
 
 struct JSONParameters {

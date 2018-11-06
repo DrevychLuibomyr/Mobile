@@ -6,7 +6,7 @@ target 'Task-two' do
   use_frameworks!
 
   # Pods for Task-two
-    pod 'SDWebImage'
+    pod "SDWebImage"
     pod "Alamofire"
     pod "SwiftyJSON"
 end
