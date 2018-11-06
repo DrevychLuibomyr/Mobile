@@ -47,6 +47,10 @@ class PhotosViewController: UIViewController {
         self.present(vc, animated: true, completion:  nil)
     }
     
+    @IBAction func reloadCollection(_ sender: Any) {
+        collectionView.reloadData()
+    }
+    
 }
 
 //MARK: - UICollectionViewDataSource
