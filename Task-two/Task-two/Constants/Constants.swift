@@ -55,4 +55,5 @@ struct JSONParameters {
     static let lat = "lat"
     static let radius = "radius"
     static let radiusUnits = "radius_units"
+    static let dateupload = "date_upload"
 }

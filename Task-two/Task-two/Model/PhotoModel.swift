@@ -14,5 +14,4 @@ struct PhotoModel {
     let id: String?
     let url: String?
     let secret: String?
-    let views: String?
 }

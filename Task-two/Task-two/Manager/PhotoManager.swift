@@ -50,8 +50,7 @@ class PhotoManager: PhotoManagerProtocol {
             URLQueryItem(name: JSONParameters.nojsoncallback, value: FlickrUrlConstants.callback),
             URLQueryItem(name: JSONParameters.perpage, value: perPage),
             URLQueryItem(name: JSONParameters.page, value: FlickrUrlConstants.page),
-            URLQueryItem(name: JSONParameters.extras, value: FlickrUrlConstants.views),
-            URLQueryItem(name: JSONParameters.extras, value: FlickrUrlConstants.size)
+            URLQueryItem(name: JSONParameters.extras, value: FlickrUrlConstants.size),
         ]
         return urlComponents.url
     }
@@ -67,8 +66,7 @@ class PhotoManager: PhotoManagerProtocol {
             let secret = photo["secret"].stringValue
             let server = photo["server"].stringValue
             let url_m = photo["url_m"].stringValue
-            let views = photo["views"].stringValue
-            models.append(PhotoModel(owner: owner, title: title, server: server, id: id, url: url_m, secret: secret, views: views))
+            models.append(PhotoModel(owner: owner, title: title, server: server, id: id, url: url_m, secret: secret))
         }
         return models
     }
