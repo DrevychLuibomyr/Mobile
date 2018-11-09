@@ -33,7 +33,7 @@ struct FlickrUrlConstants {
     static let callback = "1"
     static let perPage = "50"
     static let page = "0"
-    static let size = "url_m"
+    static let size = "url_m,views,owner_name"
     static let views = "views"
     static let extra = "extra"
     static let radiusUnits = "km"

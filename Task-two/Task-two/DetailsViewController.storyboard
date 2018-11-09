@@ -18,20 +18,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iOT-nL-lf6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iOT-nL-lf6">
                                 <rect key="frame" x="0.0" y="164" width="375" height="367"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="367" id="RBA-w4-scK"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Views" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02y-3Y-44g">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Views" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02y-3Y-44g">
                                 <rect key="frame" x="7" y="545" width="46" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwo-CO-4cX">
-                                <rect key="frame" x="16" y="81" width="343" height="60"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwo-CO-4cX">
+                                <rect key="frame" x="16" y="125" width="343" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOC-Ii-nHj">
+                                <rect key="frame" x="7" y="574" width="162" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="162" id="2nd-dL-nwT"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -44,9 +53,12 @@
                             <constraint firstItem="lwo-CO-4cX" firstAttribute="leading" secondItem="ntO-cX-BBy" secondAttribute="leading" constant="16" id="DoI-2z-dC6"/>
                             <constraint firstItem="ntO-cX-BBy" firstAttribute="trailing" secondItem="lwo-CO-4cX" secondAttribute="trailing" constant="16" id="KSZ-xw-FYR"/>
                             <constraint firstItem="ntO-cX-BBy" firstAttribute="bottom" secondItem="02y-3Y-44g" secondAttribute="bottom" constant="101" id="LV5-5D-ms2"/>
+                            <constraint firstItem="qOC-Ii-nHj" firstAttribute="leading" secondItem="ntO-cX-BBy" secondAttribute="leading" constant="7" id="bZE-Ch-XJ4"/>
                             <constraint firstItem="lwo-CO-4cX" firstAttribute="top" secondItem="ntO-cX-BBy" secondAttribute="top" constant="61" id="iis-Bq-387"/>
                             <constraint firstItem="iOT-nL-lf6" firstAttribute="top" secondItem="lwo-CO-4cX" secondAttribute="bottom" constant="23" id="p3t-m2-07i"/>
                             <constraint firstAttribute="trailing" secondItem="iOT-nL-lf6" secondAttribute="trailing" id="q1r-e3-9zO"/>
+                            <constraint firstItem="qOC-Ii-nHj" firstAttribute="top" secondItem="02y-3Y-44g" secondAttribute="bottom" constant="8" id="uFY-vb-huJ"/>
+                            <constraint firstItem="ntO-cX-BBy" firstAttribute="bottom" secondItem="qOC-Ii-nHj" secondAttribute="bottom" constant="67" id="wLL-qZ-8jd"/>
                             <constraint firstItem="02y-3Y-44g" firstAttribute="top" secondItem="iOT-nL-lf6" secondAttribute="bottom" constant="14" id="wd2-kS-g67"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ntO-cX-BBy"/>
@@ -54,6 +66,7 @@
                     <navigationItem key="navigationItem" id="2Rk-mI-GeF"/>
                     <connections>
                         <outlet property="imageView" destination="iOT-nL-lf6" id="zdE-s6-8L1"/>
+                        <outlet property="owner_Name" destination="qOC-Ii-nHj" id="7Ev-sy-sZm"/>
                         <outlet property="photoTitle" destination="lwo-CO-4cX" id="bR0-lm-W2b"/>
                         <outlet property="views" destination="02y-3Y-44g" id="gPG-WR-0JP"/>
                     </connections>

@@ -15,11 +15,8 @@ class PhotosViewController: UIViewController {
     
     //MARK: -  Variables
     private let photoManager = PhotoManager()
-    private var dataSource = [PhotoModel?]() {
-        didSet {
-            collectionView.reloadData()
-        }
-    }
+    private var dataSource = [PhotoModel?]()
+
     
     //MARK: - Life cycle
     override func viewDidLoad() {
@@ -32,6 +29,7 @@ class PhotosViewController: UIViewController {
     private func fetchData(completion: (() -> Void)? = nil, page: String) {
         photoManager.getPhotos(page: page, onSuccess: { [weak self] photos in
             self?.dataSource = photos
+            self?.collectionView.reloadData()
             completion?()
         }) { [weak self] errorString in
             guard let `self` = self else { return }

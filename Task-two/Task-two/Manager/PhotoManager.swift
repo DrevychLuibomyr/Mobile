@@ -10,6 +10,7 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
+
 protocol PhotoManagerProtocol {
     func getPhotos(page: String, onSuccess: @escaping ([PhotoModel]) -> (),onError: @escaping (String) -> ())
 }
@@ -20,20 +21,20 @@ class PhotoManager: PhotoManagerProtocol {
         guard let url = getFlickrURL(perPage: page) else { return }
         var urlRequest = URLRequest(url: url)
         urlRequest.timeoutInterval = FlickrUrlConstants.timeout
-        Alamofire.request(urlRequest).responseJSON { [weak self] (response) in
-            if let error = response.error {
-                onError(error.localizedDescription)
-            } else {
-                Async.mainQueue {
-                    guard let jsonData = response.value else { return }
+            Alamofire.request(urlRequest).responseJSON { [weak self] (response) in
+                if let error = response.error {
+                    onError(error.localizedDescription)
+                } else {
+                    guard let jsonData = response.value else { return  }
                     guard let data = self?.parseResponce(jsonData: jsonData) else { return }
-                    onSuccess(data)
+                    Async.mainQueue {
+                        onSuccess(data)
+                    }
                 }
             }
-        }
         
     }
-
+    
     private func getFlickrURL(perPage: String) -> URL? {
         var urlComponents = URLComponents()
         urlComponents.scheme = FlickrUrlConstants.flickrApiScheme
@@ -66,11 +67,13 @@ class PhotoManager: PhotoManagerProtocol {
             let secret = photo["secret"].stringValue
             let server = photo["server"].stringValue
             let url_m = photo["url_m"].stringValue
-            models.append(PhotoModel(owner: owner, title: title, server: server, id: id, url: url_m, secret: secret))
+            let owner_name = photo["ownername"].stringValue
+            let vierws = photo["views"].stringValue
+            models.append(PhotoModel(owner: owner, title: title, server: server, id: id, url: url_m, secret: secret, views: vierws, ownername: owner_name))
         }
         return models
     }
 }
-    
-    
+
+
 

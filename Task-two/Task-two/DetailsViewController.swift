@@ -14,6 +14,8 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var views: UILabel!
     @IBOutlet weak var photoTitle: UILabel!
+    @IBOutlet weak var owner_Name: UILabel!
+
     
     var model: PhotoModel!
     
@@ -25,8 +27,9 @@ class DetailsViewController: UIViewController {
     private func setUpViewController() {
         guard let url = model.url else { return }
         imageView.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "placeholder"))
-        views.text = model.views
         photoTitle.text = model.title
+        views.text = model.views
+        owner_Name.text = model.ownername
     }
     
 }
