@@ -27,6 +27,8 @@ class AccountViewController: UITableViewController {
         setUpNSRegularExpression()
     }
     
+    
+    
     func setUpNSRegularExpression() {
         textFields = [ firstNameField, middleInitialField, lastNameField, superVillianNameField, passwordField, phoneFiled, emailField, passwordConfig ]
         
@@ -52,14 +54,10 @@ class AccountViewController: UITableViewController {
     
     @IBAction func saveTapped(_ sender: AnyObject) {
         if allTextFieldsAreValid() {
-            let arrayOfText = [firstNameField.text, lastNameField.text, middleInitialField.text]
-            UserDefaults.standard.set(arrayOfText, forKey: "Text")
-            print(arrayOfText)
+            let model = Model(firstName: firstNameField.text!, secondName: lastNameField.text!, email: emailField.text!)
+            Manager.submitDataWith(model: model)
         } else {
-            let alertController = UIAlertController(title: "Error!", message: "Could not save account details. Some text fields failed to validate.", preferredStyle: .alert)
-            let dismissAction = UIAlertAction(title: "OK", style: .default)
-            alertController.addAction(dismissAction)
-            self.present(alertController, animated: true, completion: nil)
+            AlertHelper.showAlert(on: self, title: "Error", message: "Could not save account details. Some text fields failed to validate.", buttonTitle: "Ok", buttonAction: {}, showCancelButton: false)
         }
     }
     
@@ -93,6 +91,14 @@ class AccountViewController: UITableViewController {
         
         return true
     }
+    
+    func setAccountWith(firstName: String?, email: String?, lastName: String?) {
+        // This is a tutorial on Regular Expressions, not Authentication. Don't ever do this in real life!
+        UserDefaults.standard.set(firstName, forKey: "Name")
+        UserDefaults.standard.set(emailField, forKey: "Email")
+        UserDefaults.standard.set(lastName, forKey: "LastName")
+    }
+
     
 }
 
