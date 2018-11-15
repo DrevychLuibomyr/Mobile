@@ -14,13 +14,14 @@ class ResultViewController: UIViewController {
     
     var model = [Model]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         getDataSource()
     }
     
     private func getDataSource() {
        model = Manager.getPersons()
+
     }
     
 }
