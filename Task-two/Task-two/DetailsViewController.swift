@@ -9,27 +9,45 @@
 import UIKit
 import SDWebImage
 
-class DetailsViewController: UIViewController {
+final class DetailsViewController: UIViewController {
     
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var views: UILabel!
-    @IBOutlet weak var photoTitle: UILabel!
-    @IBOutlet weak var owner_Name: UILabel!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var views: UILabel!
+    @IBOutlet private weak var photoTitle: UILabel!
+    @IBOutlet private weak var owner_Name: UILabel!
+    @IBOutlet private weak var likeCount: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
 
     
     var model: PhotoModel!
+    var liked = false
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViewController()
     }
     
+    @IBAction func addToFavourite(_ sender: UIButton) {
+        guard let like = Int(model.server ?? "") else { return }
+        if !liked {
+            likeCount.text = "\(like + 1)" + " likes"
+            likeButton.setImage(UIImage(named: "Liked"), for: .normal)
+            liked = true
+        } else {
+            likeCount.text = "\(like)" + " likes"
+            likeButton.setImage(UIImage(named: "Unliked"), for: .normal)
+            liked = false
+        }
+    }
+    
     private func setUpViewController() {
         guard let url = model.url else { return }
         imageView.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "placeholder"))
         photoTitle.text = model.title
-        views.text = model.views
+        views.text = "Views: \(model.views ?? ":(")"
         owner_Name.text = model.ownername
+        likeCount.text = model.server
     }
     
 }
