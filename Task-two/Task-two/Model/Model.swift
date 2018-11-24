@@ -9,14 +9,12 @@
 import Foundation
 
 class Model: Codable {
-    var firstName: String
-    var secondName: String
-    var email: String
+    var likesCount: String
+    var id: String
     
-    init(firstName : String, secondName: String, email : String) {
-        self.firstName = firstName
-        self.secondName = secondName
-        self.email = email
+    init(likesCount : String, id: String) {
+        self.id = id
+        self.likesCount = likesCount
     }
     
 }

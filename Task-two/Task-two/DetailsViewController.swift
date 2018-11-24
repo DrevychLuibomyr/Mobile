@@ -33,6 +33,8 @@ final class DetailsViewController: UIViewController {
         if !liked {
             likeCount.text = "\(like + 1)" + " likes"
             likeButton.setImage(UIImage(named: "Liked"), for: .normal)
+            let model = Model(likesCount: likeCount.text!, id: self.model.id!)
+            Manager.submitDataWith(model: model)
             liked = true
         } else {
             likeCount.text = "\(like)" + " likes"

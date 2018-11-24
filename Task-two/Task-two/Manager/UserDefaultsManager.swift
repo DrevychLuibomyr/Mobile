@@ -36,12 +36,12 @@ class Manager {
         }
     }
     
-    
+    static func removeFromUserDefaults() {
+        UserDefaults.standard.removeObject(forKey: Constants.modelKey)
+    }
     
     static func isKeyPresentInUserDefaults() -> Bool {
         return UserDefaults.standard.object(forKey: Constants.modelKey) != nil
     }
-    
-    
     
 }

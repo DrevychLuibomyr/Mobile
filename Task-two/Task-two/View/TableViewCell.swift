@@ -9,7 +9,6 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-    @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var email: UILabel!
-    @IBOutlet weak var  lastName: UILabel!
+    @IBOutlet weak var likes: UILabel!
+    @IBOutlet weak var id: UILabel!
 }

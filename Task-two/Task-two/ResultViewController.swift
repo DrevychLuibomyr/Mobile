@@ -16,6 +16,9 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableVIew.rowHeight = UITableViewAutomaticDimension
+        tableVIew.estimatedRowHeight = tableVIew.rowHeight
+        navigationItem.rightBarButtonItem = editButtonItem
         getDataSource()
     }
     
@@ -36,10 +39,19 @@ extension ResultViewController: UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as? TableViewCell else { return UITableViewCell()}
         let dataSource = model[indexPath.row]
-        cell.email.text = dataSource.email
-        cell.lastName.text = dataSource.secondName
-        cell.userName.text = dataSource.firstName
+        cell.likes.text = dataSource.likesCount
+        cell.id.text = dataSource.id
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let data = model[indexPath.section]
+            model.remove(at: indexPath.row)
+            Manager.removeFromUserDefaults()
+            tableVIew.deleteRows(at: [indexPath], with: .automatic)
+            
+        }
     }
     
 }
