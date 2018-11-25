@@ -16,37 +16,38 @@ class PhotosViewController: UIViewController {
     //MARK: -  Variables
     private let photoManager = PhotoManager()
     private var dataSource = [PhotoModel?]()
+    var presenter: PhotoVCPresenter!
 
     
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchData(page: "18")
-        collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Constants.collectionCellIdentifier)
+        fetchData(page: Constants.newPhotos)
+        collectionView.register(UINib(nibName: Constants.collectionNibname, bundle: nil), forCellWithReuseIdentifier: Constants.collectionCellIdentifier)
     }
     
     //MARK: Private
     private func fetchData(completion: (() -> Void)? = nil, page: String) {
-        photoManager.getPhotos(page: page, onSuccess: { [weak self] photos in
-            self?.dataSource = photos
+        presenter.getData(page: page, onSuccess: { [weak self] model in
+            self?.dataSource = model
             self?.collectionView.reloadData()
-            completion?()
         }) { [weak self] errorString in
             guard let `self` = self else { return }
-            AlertHelper.showAlert(on: self, message: errorString, buttonTitle: "Ok", buttonAction: {}, showCancelButton: false)
+            AlertHelper.showAlert(on: self, message: errorString, buttonTitle: Constants.alertButtonTitle, buttonAction: {}, showCancelButton: false)
             completion?()
         }
     }
     
     private func presentDetailsVC(model: PhotoModel) {
-        let detailtStoryboard = UIStoryboard(name: "DetailsViewController", bundle: nil)
-        guard let vc = detailtStoryboard.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController else { return }
-        vc.model = model
-        self.present(vc, animated: true, completion:  nil)
+        presenter.showDetailsViewController(model: model)
     }
     
     @IBAction func reloadCollection(_ sender: Any) {
         collectionView.reloadData()
+    }
+    
+    @IBAction func showResultVC(_ sender: Any) {
+        presenter.showResults()
     }
     
 }
@@ -73,7 +74,7 @@ extension PhotosViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == dataSource.count - 1 {
             Async.mainQueue { [weak self] in
-                self?.fetchData(page: "20")
+                self?.fetchData(page: Constants.newPhotos)
                 self?.collectionView.reloadData()
             }
         }

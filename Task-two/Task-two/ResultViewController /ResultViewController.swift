@@ -13,6 +13,8 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var tableVIew: UITableView!
     
     var model = [Model]()
+    var presenter: ResultVCPresenterProtocol!
+    private var url: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +25,14 @@ class ResultViewController: UIViewController {
     }
     
     private func getDataSource() {
-       model = Manager.getPersons()
+        model = presenter.getData()
     }
+    
+    private func getPhotoUrl(farm: String, id: String, server: String, secret: String) {
+        let url = "https://farm\(farm).staticflickr.com/\(server)/\(id)_\(secret)_n.jpg"
+        self.url = url
+    }
+    
     
 }
 
@@ -39,18 +47,16 @@ extension ResultViewController: UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as? TableViewCell else { return UITableViewCell()}
         let dataSource = model[indexPath.row]
-        cell.likes.text = dataSource.likesCount
+        cell.likes.text = dataSource.farm
         cell.id.text = dataSource.id
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let data = model[indexPath.section]
             model.remove(at: indexPath.row)
-            Manager.removeFromUserDefaults()
+            presenter.removeData()
             tableVIew.deleteRows(at: [indexPath], with: .automatic)
-            
         }
     }
     

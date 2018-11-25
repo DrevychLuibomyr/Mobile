@@ -10,7 +10,7 @@ import Foundation
 
 class Manager {
     
-    static func getPersons() -> [Model] {
+     func getPersons() -> [Model] {
         if let placeData = UserDefaults.standard.data(forKey: Constants.modelKey) {
             guard let placeArray = try? JSONDecoder().decode([Model].self, from: placeData) else { return [] }
             return placeArray
@@ -19,10 +19,11 @@ class Manager {
         }
     }
     
-    static func submitDataWith(model: Model) {
+     func submitDataWith(model: Model) {
         var models: [Model] = []
+        let manager = Manager()
         if isKeyPresentInUserDefaults() {
-            models = Manager.getPersons()
+            models = manager.getPersons()
             models.append(model)
             let placesData = try? JSONEncoder().encode(models)
             UserDefaults.standard.removeObject(forKey: Constants.modelKey)
@@ -36,11 +37,11 @@ class Manager {
         }
     }
     
-    static func removeFromUserDefaults() {
+     func removeFromUserDefaults() {
         UserDefaults.standard.removeObject(forKey: Constants.modelKey)
     }
     
-    static func isKeyPresentInUserDefaults() -> Bool {
+     func isKeyPresentInUserDefaults() -> Bool {
         return UserDefaults.standard.object(forKey: Constants.modelKey) != nil
     }
     

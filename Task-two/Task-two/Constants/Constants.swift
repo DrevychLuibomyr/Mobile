@@ -17,8 +17,11 @@ struct Constants {
     static let cellIdentifier = "Cell"
     static let modelKey = "model"
     static let collectionCellIdentifier = "CollectionViewCell"
+    static let collectionNibname = "CollectionViewCell"
     static let numbersOfColumns: CGFloat = 3
     static let spaceBetweenCell: CGFloat = 8
+    static let placeholder = "placeholder"
+    static let newPhotos = "25"
 }
 
 struct FlickrUrlConstants {

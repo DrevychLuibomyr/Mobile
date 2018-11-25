@@ -9,12 +9,16 @@
 import Foundation
 
 class Model: Codable {
-    var likesCount: String
+    var farm: String
+    var server: String
+    var secret: String
     var id: String
     
-    init(likesCount : String, id: String) {
+    init(farm : String, server: String, secret: String, id: String) {
+        self.farm = farm
+        self.server = server
+        self.secret = secret
         self.id = id
-        self.likesCount = likesCount
     }
     
 }

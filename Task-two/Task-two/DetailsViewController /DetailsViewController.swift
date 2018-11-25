@@ -21,7 +21,7 @@ final class DetailsViewController: UIViewController {
     
     var model: PhotoModel!
     var liked = false
-
+    var presenter: DetailsVCPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +33,8 @@ final class DetailsViewController: UIViewController {
         if !liked {
             likeCount.text = "\(like + 1)" + " likes"
             likeButton.setImage(UIImage(named: "Liked"), for: .normal)
-            let model = Model(likesCount: likeCount.text!, id: self.model.id!)
-            Manager.submitDataWith(model: model)
+            let model = Model(farm: likeCount.text!, server: self.model.server!, secret: self.model.secret!, id: self.model.id!)
+            presenter.addToFavourite(model: model)
             liked = true
         } else {
             likeCount.text = "\(like)" + " likes"

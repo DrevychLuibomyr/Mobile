@@ -16,7 +16,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     func setUpCell(model: PhotoModel) {
         guard let url = model.url else { return }
-        imageView.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "placeholder"))
+        imageView.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: Constants.placeholder))
     }
 
 }

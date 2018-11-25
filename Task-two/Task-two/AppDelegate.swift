@@ -13,9 +13,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    static var router = CompositionRoot()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        window = UIWindow()
         // Override point for customization after application launch.
+        window?.rootViewController = AppDelegate.router.navigationController
+        window?.makeKeyAndVisible()
+        AppDelegate.router.gotToPhotos()
         return true
     }
 
