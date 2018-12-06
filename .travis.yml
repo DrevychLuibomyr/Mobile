@@ -15,6 +15,7 @@ before_install:
 script:
   - set -o pipefail
   - xcodebuild -workspace Task-two.xcworkspace -scheme Task-two -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
+  - xcodebuild -scheme Task-two archive
 before_deploy:
   - git config --local user.name "DrevychLuibomyr"
   - git config --local user.email "LDrevych@gmail.com"
