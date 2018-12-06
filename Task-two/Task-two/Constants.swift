@@ -15,4 +15,6 @@ struct Constants {
     static let alertNotValidFiledsMessage = "Your fields is empty or you make mistake"
     static let cellIdentifier = "Cell"
     static let modelKey = "model"
+    static let int = "int"
+    
 }
